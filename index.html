@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FOA Self-Assessment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .question, .start-screen {
+            display: none;
+            margin: 20px;
+        }
+        .active {
+            display: block;
+        }
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>  <h1>Your Seneca Journey</h1>
+
+    <!-- Start Screen -->
+    <div id="start-screen" class="start-screen active">
+        <p>Welcome to Your Seneca Journey! Ready to begin?</p>
+        <button onclick="showQuestion('q1')">Start</button>
+    </div>
+
+    <!-- Question 1 -->
+    <div id="q1" class="question">
+        <p>Do you have an Ontario Secondary School Diploma (OSSD) or equivalent?</p>
+        <button onclick="showQuestion('q2')">Yes</button>
+        <button onclick="showQuestion('q3')">No</button>
+    </div>
+
+    <!-- Question 2 -->
+    <div id="q2" class="question">
+        <p>Are you a domestic student?</p>
+        <button onclick="showQuestion('q5')">Yes</button>
+        <button onclick="showQuestion('q9')">No</button>
+    </div>
+
+    <!-- Question 3 -->
+    <div id="q3" class="question">
+        <p>Are you an international student?</p>
+        <button onclick="showQuestion('q9')">Yes</button>
+        <button onclick="showQuestion('q4')">No</button>
+    </div>
+
+    <!-- Question 4 -->
+    <div id="q4" class="question">
+        <p>Are you above 19 years old, a Canadian citizen, Permanent Resident, or Refugee Claimant?</p>
+        <button onclick="showQuestion('q7')">Yes</button>
+        <button onclick="showAlertWithBack('Consult with TDSB for further options.')">No</button>
+    </div>
+
+    <!-- Question 5 -->
+    <div id="q5" class="question">
+        <p>Do you have completed 12U or 12C English, or equivalent?</p>
+        <button onclick="showQuestion('q6')">Yes</button>
+        <button onclick="showQuestion('q4')">No</button>
+    </div>
+
+    <!-- Question 6 -->
+    <div id="q6" class="question">
+        <p>Are you looking for credit recovery or transitioning into Seneca programs?</p>
+        <button onclick="alert('Consider the General Arts Pathway (GAP).')">Yes</button>
+        <button onclick="showQuestion('q12')">No</button>  <!-- Fixed: Now leads to Question 12 -->
+    </div>
+
+    <!-- Question 7 -->
+    <div id="q7" class="question">
+        <p>Do you meet the English, Math, or Science admission requirements for your chosen program?</p>
+        <button onclick="showQuestion('q8')">Yes</button>
+        <button onclick="alert('Explore Academic Upgrading Program (AUC).')">No</button>
+    </div>
+
+    <!-- Question 8 -->
+    <div id="q8" class="question">
+        <p>Are you interested in studying a Seneca degree program?</p>
+        <button onclick="alert('Explore 12U program.')">Yes</button>
+        <button onclick="alert('Explore Academic Upgrading Program (AUC).')">No</button>
+    </div>
+<!-- Question 9 -->
+<div id="q9" class="question">
+    <p>Is English your first language?</p>
+    <button onclick="showQuestion('q13')">Yes</button>
+    <button onclick="showQuestion('q10')">No</button>
+</div>
+
+<!-- Question 10 -->
+<div id="q10" class="question">
+    <p>Do you need to meet Seneca's English proficiency requirements?</p>
+    <button onclick="showQuestion('q12')">Yes</button>
+    <button onclick="showQuestion('q11')">No</button>
+</div>
+
+<!-- Question 11 -->
+<div id="q11" class="question">
+    <p>Have you taken any international English proficiency tests, with a score equivalent to CLB Level 4 or above?</p>
+    <button onclick="alert('Explore the GEA Path.')">Yes</button>
+    <button onclick="alert('Explore the ESL Path.')">No</button>
+</div>
+
+<!-- Question 12 -->
+<div id="q12" class="question">
+    <p>Are you missing certain subjects or unsure about your career path, and want to explore options while earning credits?</p>
+    <button onclick="alert('Explore GAP Pathway.')">Yes</button>
+    <button onclick="showQuestion('q13')">No</button>
+</div>
+
+<!-- Question 13 -->
+<div id="q13" class="question">
+    <p>Are you interested in university pathways to complete both a diploma and a university degree in less than FOUR years?</p>
+    <button onclick="showQuestion('q14')">Yes</button>
+    <button onclick="showQuestion('q16')">No</button> 
+</div>
+
+<!-- Question 14 -->
+<div id="q14" class="question">
+    <p>Are you more interested in Science programs?</p>
+    <button onclick="alert('Choose ASU Pathway.')">Yes</button>
+    <button onclick="showQuestion('q15')">No</button>
+</div>
+
+<!-- Question 15 -->
+<div id="q15" class="question">
+    <p>Are you more interested in Liberal Arts programs?</p>
+    <button onclick="alert('Select the LAT Pathway.')">Yes</button>
+    <button onclick="alert('Consult with our International Advisor')">No</button>  
+</div>
+
+ <!-- Question 16 -->
+ <div id="q16" class="question">
+    <p>Are you looking for a fast-track option to complete a degree?</p>
+    <button onclick="alert('Explore the Honours Bachelor of Interdisciplinary Studies (INS).')">Yes</button>
+    <button onclick="alert('Consult with our International advisor.')">No</button>
+</div>
+
+<!-- Go Back to Question 1 Section -->
+<div id="go-back" class="go-back">
+    <p>Do you want to go back to the start?</p>
+    <button onclick="showQuestion('q1')">Go Back to Question 1</button>
+</div>
+
+
+<!-- JavaScript to Control Navigation -->
+<script>
+    function showQuestion(questionId) {
+        const allElements = document.querySelectorAll('.question, .start-screen');
+        allElements.forEach(element => element.classList.remove('active'));
+        document.getElementById(questionId).classList.add('active');
+    }
+</script>
+
+<script>
+    function showQuestion(questionId) {
+        const allElements = document.querySelectorAll('.question, .start-screen, .go-back');
+        allElements.forEach(element => element.classList.remove('active'));
+        document.getElementById(questionId).classList.add('active');
+    }
+
+    function showAlertWithBack(message) {
+        alert(message);
+        if (['q4','q6','q7','q8','q11','q14','q15','q16'].includes(questionId)) {
+                document.getElementById('go-back').classList.add('active');
+            }
+    }
+</script>
+
+    
+</body>
+</html>
