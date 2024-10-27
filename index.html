@@ -8,11 +8,17 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            margin-top: 50px;
+            margin: 80px auto;
+            max-width: 800px;
+            padding: 0 20px;
         }
         .question, .start-screen {
             display: none;
-            margin: 20px;
+            margin: 30px 0;
+        }
+        .go-back {
+            display: none;
+            margin: 20px 0;
         }
         .active {
             display: block;
@@ -21,14 +27,31 @@
             margin: 10px;
             padding: 10px 20px;
             font-size: 16px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            cursor: pointer;
+            background-color: #f8f8f8;
+        }
+        button:hover {
+            background-color: #e8e8e8;
+        }
+        h1 {
+            font-size: 24px;
+            line-height: 1.4;
+            margin-bottom: 30px;
+        }
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
         }
     </style>
 </head>
-<body>  <h1>Your Seneca Journey</h1>
+<body>
+    <h1>Didn't get accepted to the program of your choice? Mature applicants didn't meet English or Math prerequisites after completing English and Math pre-admission testing?</h1>
 
     <!-- Start Screen -->
     <div id="start-screen" class="start-screen active">
-        <p>Welcome to Your Seneca Journey! Ready to begin?</p>
+        <p>Start your journey with us. We have all you need to achieve academic success.</p>
         <button onclick="showQuestion('q1')">Start</button>
     </div>
 
@@ -37,7 +60,13 @@
         <p>Do you have an Ontario Secondary School Diploma (OSSD) or equivalent?</p>
         <button onclick="showQuestion('q2')">Yes</button>
         <button onclick="showQuestion('q3')">No</button>
+        <br><br>
+        <a 
+        href="https://www.ontario.ca/page/earning-your-high-school-diploma" target="_blank" style="text-decoration: none;">
+            <button>What is OSSD?</button>
+        </a>
     </div>
+
 
     <!-- Question 2 -->
     <div id="q2" class="question">
@@ -57,61 +86,68 @@
     <div id="q4" class="question">
         <p>Are you above 19 years old, a Canadian citizen, Permanent Resident, or Refugee Claimant?</p>
         <button onclick="showQuestion('q7')">Yes</button>
-        <button onclick="showAlertWithBack('Consult with TDSB for further options.')">No</button>
+        <button onclick="showAlertWithBack('Contact us at 416.764.0555 student.recruitment@senecapolytechnic.ca or book an online advising appointment');showGoBack();">No</button>
     </div>
 
     <!-- Question 5 -->
     <div id="q5" class="question">
         <p>Do you have completed 12U or 12C English, or equivalent?</p>
         <button onclick="showQuestion('q6')">Yes</button>
-        <button onclick="showQuestion('q4')">No</button>
+        <button onclick="showQuestion('q9')">No</button>
     </div>
 
     <!-- Question 6 -->
     <div id="q6" class="question">
         <p>Are you looking for credit recovery or transitioning into Seneca programs?</p>
-        <button onclick="alert('Consider the General Arts Pathway (GAP).')">Yes</button>
-        <button onclick="showQuestion('q12')">No</button>  <!-- Fixed: Now leads to Question 12 -->
+        <button onclick="alert('Consider the General Arts Pathway (GAP).'); showGoBack();">Yes</button>
+        <button onclick="showQuestion('q12')">No</button>  
     </div>
 
     <!-- Question 7 -->
     <div id="q7" class="question">
         <p>Do you meet the English, Math, or Science admission requirements for your chosen program?</p>
         <button onclick="showQuestion('q8')">Yes</button>
-        <button onclick="alert('Explore Academic Upgrading Program (AUC).')">No</button>
+        <button onclick="alert('Explore Academic Upgrading Program (AUC).'); showGoBack();">No</button>
     </div>
 
     <!-- Question 8 -->
     <div id="q8" class="question">
         <p>Are you interested in studying a Seneca degree program?</p>
-        <button onclick="alert('Explore 12U program.')">Yes</button>
-        <button onclick="alert('Explore Academic Upgrading Program (AUC).')">No</button>
+        <button onclick="alert('Explore 12U program.'); showGoBack();">Yes</button>
+        <button onclick="alert('Explore Academic Upgrading Program (AUC).'); showGoBack();">No</button>
     </div>
 <!-- Question 9 -->
 <div id="q9" class="question">
-    <p>Is English your first language?</p>
-    <button onclick="showQuestion('q13')">Yes</button>
-    <button onclick="showQuestion('q10')">No</button>
+    <p>Are you an ESL (English as a Second language) learner?</p>
+    <button onclick="showQuestion('q10')">Yes</button>
+    <button onclick="showQuestion('q17')">No</button>
 </div>
 
 <!-- Question 10 -->
 <div id="q10" class="question">
-    <p>Do you need to meet Seneca's English proficiency requirements?</p>
+    <p>Do you need to meet Seneca's English proficiency requirements to get into a Seneca program?</p>
     <button onclick="showQuestion('q12')">Yes</button>
     <button onclick="showQuestion('q11')">No</button>
+    <br><br>
+    <a 
+    href="https://www.senecapolytechnic.ca/international/apply/how-to-apply/admission-requirements/english-requirements.html#:~:text=English%20Requirements%20All%20applicants%20to%20Seneca%20must%20be,and%20country%20where%20English%20is%20the%20primary%20language" target="_blank" style="text-decoration: none;">
+        <button>Seneca's English proficiency requirements</button>
+    </a>
+
+
 </div>
 
 <!-- Question 11 -->
 <div id="q11" class="question">
     <p>Have you taken any international English proficiency tests, with a score equivalent to CLB Level 4 or above?</p>
-    <button onclick="alert('Explore the GEA Path.')">Yes</button>
-    <button onclick="alert('Explore the ESL Path.')">No</button>
+    <button onclick="alert('Explore the GEA Path.'); showGoBack();">Yes</button>
+    <button onclick="alert('Explore the ELI Path.'); showGoBack();">No</button>
 </div>
 
 <!-- Question 12 -->
 <div id="q12" class="question">
-    <p>Are you missing certain subjects or unsure about your career path, and want to explore options while earning credits?</p>
-    <button onclick="alert('Explore GAP Pathway.')">Yes</button>
+    <p>Are you unsure about your career path, and want to explore options while earning credits?</p>
+    <button onclick="showQuestion('q17')">Yes</button>
     <button onclick="showQuestion('q13')">No</button>
 </div>
 
@@ -125,55 +161,73 @@
 <!-- Question 14 -->
 <div id="q14" class="question">
     <p>Are you more interested in Science programs?</p>
-    <button onclick="alert('Choose ASU Pathway.')">Yes</button>
+    <button onclick="alert('Choose ASU Pathway.'); showGoBack();">Yes</button>
     <button onclick="showQuestion('q15')">No</button>
 </div>
 
 <!-- Question 15 -->
 <div id="q15" class="question">
     <p>Are you more interested in Liberal Arts programs?</p>
-    <button onclick="alert('Select the LAT Pathway.')">Yes</button>
-    <button onclick="alert('Consult with our International Advisor')">No</button>  
+    <button onclick="alert('Select the LAT Pathway.'); showGoBack();">Yes</button>
+    <button onclick="alert('Consult with our International Student Recruitment @ seneca.international@senecapolytechnic.ca');showGoBack();">No</button>  
 </div>
 
  <!-- Question 16 -->
  <div id="q16" class="question">
     <p>Are you looking for a fast-track option to complete a degree?</p>
-    <button onclick="alert('Explore the Honours Bachelor of Interdisciplinary Studies (INS).')">Yes</button>
-    <button onclick="alert('Consult with our International advisor.')">No</button>
+    <button onclick="alert('Explore the Honours Bachelor of Interdisciplinary Studies (INS).'); showGoBack();">Yes</button>
+    <button onclick="alert('Consult with our International Student Recruitment @ seneca.international@senecapolytechnic.ca');showGoBack();">No</button>
 </div>
 
-<!-- Go Back to Question 1 Section -->
-<div id="go-back" class="go-back">
-    <p>Do you want to go back to the start?</p>
-    <button onclick="showQuestion('q1')">Go Back to Question 1</button>
-</div>
-
-
-<!-- JavaScript to Control Navigation -->
-<script>
-    function showQuestion(questionId) {
-        const allElements = document.querySelectorAll('.question, .start-screen');
-        allElements.forEach(element => element.classList.remove('active'));
-        document.getElementById(questionId).classList.add('active');
-    }
-</script>
-
-<script>
-    function showQuestion(questionId) {
-        const allElements = document.querySelectorAll('.question, .start-screen, .go-back');
-        allElements.forEach(element => element.classList.remove('active'));
-        document.getElementById(questionId).classList.add('active');
-    }
-
-    function showAlertWithBack(message) {
-        alert(message);
-        if (['q4','q6','q7','q8','q11','q14','q15','q16'].includes(questionId)) {
-                document.getElementById('go-back').classList.add('active');
-            }
-    }
-</script>
-
+<!-- Question 17 -->
+<div id="q17" class="question">
+    <p>Are you missing displine specific requirements to get into a Seneca program?</p>
+    <button onclick="alert('Consult with our International Student Recruitment @ seneca.international@senecapolytechnic.ca');showGoBack();">Yes</button>
+    <button onclick="showQuestion('q13')">No</button>
     
+</div>
+
+
+
+
+    <!-- Go Back Section -->
+    <div id="go-back" class="go-back">
+        <p>Do you want to go back to the start?</p>
+        <button onclick="showQuestion('q1')">Go Back to Question 1</button>
+    </div>
+
+    <script>
+        function showQuestion(questionId) {
+            // Hide all elements
+            const allElements = document.querySelectorAll('.question, .start-screen');
+            allElements.forEach(element => {
+                element.style.display = 'none';
+            });
+            
+            // Show selected question
+            const selectedQuestion = document.getElementById(questionId);
+            if (selectedQuestion) {
+                selectedQuestion.style.display = 'block';
+            }
+            
+            // Hide go back button when switching questions
+            const goBackElement = document.getElementById('go-back');
+            if (goBackElement) {
+                goBackElement.style.display = 'none';
+            }
+        }
+
+        function showGoBack() {
+            const goBackElement = document.getElementById('go-back');
+            if (goBackElement) {
+                goBackElement.style.display = 'block';
+            }
+        }
+
+        function showAlertWithBack(message) {
+            alert(message);
+            showGoBack();
+        }
+    </script>
 </body>
 </html>
