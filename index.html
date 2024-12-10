@@ -86,20 +86,20 @@
     <div id="q4" class="question">
         <p>Are you above 19 years old, a Canadian citizen, Permanent Resident, or Refugee Claimant?</p>
         <button onclick="showQuestion('q7')">Yes</button>
-        <button onclick="showAlertWithBack('Contact us at 416.764.0555 student.recruitment@senecapolytechnic.ca or book an online advising appointment');showGoBack();">No</button>
+        <button onclick="showAlertWithBack('Contact us at 416.764.0476 autestbooking@senecapolytechnic.ca or book an online advising appointment');showGoBack();">No</button>
     </div>
 
     <!-- Question 5 -->
     <div id="q5" class="question">
         <p>Do you have completed 12U or 12C English, or equivalent?</p>
         <button onclick="showQuestion('q6')">Yes</button>
-        <button onclick="showQuestion('q9')">No</button>
+        <button onclick="showQuestion('q18')">No</button>
     </div>
 
     <!-- Question 6 -->
     <div id="q6" class="question">
         <p>Are you looking for credit recovery or transitioning into Seneca programs?</p>
-        <button onclick="alert('Consider the General Arts Pathway (GAP).'); showGoBack();">Yes</button>
+        <button onclick="alert('Consider General Arts - 1 year certificate (GAP).');showGoBack();">Yes</button>
         <button onclick="showQuestion('q12')">No</button>  
     </div>
 
@@ -116,6 +116,7 @@
         <button onclick="alert('Explore 12U program.'); showGoBack();">Yes</button>
         <button onclick="alert('Explore Academic Upgrading Program (AUC).'); showGoBack();">No</button>
     </div>
+
 <!-- Question 9 -->
 <div id="q9" class="question">
     <p>Are you an ESL (English as a Second language) learner?</p>
@@ -140,8 +141,8 @@
 <!-- Question 11 -->
 <div id="q11" class="question">
     <p>Have you taken any international English proficiency tests, with a score equivalent to CLB Level 4 or above?</p>
-    <button onclick="alert('Explore the GEA Path.'); showGoBack();">Yes</button>
-    <button onclick="alert('Explore the ELI Path.'); showGoBack();">No</button>
+    <button onclick="showQuestion('q12')">Yes</button>
+    <button onclick="alert('Explore English Language Institute (ELI).'); showGoBack();">No</button>
 </div>
 
 <!-- Question 12 -->
@@ -161,14 +162,14 @@
 <!-- Question 14 -->
 <div id="q14" class="question">
     <p>Are you more interested in Science programs?</p>
-    <button onclick="alert('Choose ASU Pathway.'); showGoBack();">Yes</button>
+    <button onclick="alert('Choose Arts and Science - University Transfer (ASU).'); showGoBack();">Yes</button>
     <button onclick="showQuestion('q15')">No</button>
 </div>
 
 <!-- Question 15 -->
 <div id="q15" class="question">
     <p>Are you more interested in Liberal Arts programs?</p>
-    <button onclick="alert('Select the LAT Pathway.'); showGoBack();">Yes</button>
+    <button onclick="alert('Select Liberal Arts University Transfer (LAT).'); showGoBack();">Yes</button>
     <button onclick="alert('Consult with our International Student Recruitment @ seneca.international@senecapolytechnic.ca');showGoBack();">No</button>  
 </div>
 
@@ -181,10 +182,17 @@
 
 <!-- Question 17 -->
 <div id="q17" class="question">
-    <p>Are you missing displine specific requirements to get into a Seneca program?</p>
-    <button onclick="alert('Consult with our International Student Recruitment @ seneca.international@senecapolytechnic.ca');showGoBack();">Yes</button>
-    <button onclick="showQuestion('q13')">No</button>
+    <p>Do you miss any other requirements except English, Math, or Science requirement to enter a Seneca program?</p>
+    <button onclick="alert('Contact us at 416.764.0555 student.recruitment@senecapolytechnic.ca');showGoBack();">Yes</button>
+    <button onclick="alert('Consider General Arts (GAP).'); showGoBack();">No</button>
     
+</div>
+
+<!-- Question 18 --> 
+<div id="q18" class="question"> 
+    <p>Are you looking for an OSAP- eligible program to upgrade your language skills?</p>
+    <button onclick="alert('Explore General Arts - English for Academic Purposes (GEA).');showGoBack();">Yes</button>
+    <button onclick="alert('Explore Academic Upgrading (AUC).'); showGoBack();">No</button>
 </div>
 
 
@@ -198,36 +206,36 @@
 
     <script>
         function showQuestion(questionId) {
-            // Hide all elements
-            const allElements = document.querySelectorAll('.question, .start-screen');
-            allElements.forEach(element => {
-                element.style.display = 'none';
-            });
-            
-            // Show selected question
-            const selectedQuestion = document.getElementById(questionId);
-            if (selectedQuestion) {
-                selectedQuestion.style.display = 'block';
-            }
-            
-            // Hide go back button when switching questions
-            const goBackElement = document.getElementById('go-back');
-            if (goBackElement) {
-                goBackElement.style.display = 'none';
-            }
-        }
+    // Hide all elements
+    const allElements = document.querySelectorAll('.question, .start-screen');
+    allElements.forEach(element => {
+        element.style.display = 'none';
+    });
+    
+    // Show selected question
+    const selectedQuestion = document.getElementById(questionId);
+    if (selectedQuestion) {
+        selectedQuestion.style.display = 'block';
+    }
+    
+    // Hide go back button when switching questions
+    const goBackElement = document.getElementById('go-back');
+    if (goBackElement) {
+        goBackElement.style.display = 'none';
+    }
+}
 
-        function showGoBack() {
-            const goBackElement = document.getElementById('go-back');
-            if (goBackElement) {
-                goBackElement.style.display = 'block';
-            }
-        }
+function showGoBack() {
+    const goBackElement = document.getElementById('go-back');
+    if (goBackElement) {
+        goBackElement.style.display = 'block';
+    }
+}
 
-        function showAlertWithBack(message) {
-            alert(message);
-            showGoBack();
-        }
+function showAlertWithBack(message) {
+    alert(message);
+    showGoBack();
+}
     </script>
 </body>
 </html>
