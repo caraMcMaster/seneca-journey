@@ -38,20 +38,27 @@
         h1 {
             font-size: 24px;
             line-height: 1.4;
+            margin-bottom: 40px;
+        }
+        h2 {
+            font-size: 20px;
+            line-height: 1.4;
             margin-bottom: 30px;
         }
+        
         p {
             font-size: 18px;
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
     </style>
 </head>
 <body>
-    <h1>Didn't get accepted to the program of your choice? Mature applicants didn't meet English or Math prerequisites after completing English and Math pre-admission testing?</h1>
 
     <!-- Start Screen -->
     <div id="start-screen" class="start-screen active">
-        <p>Start your journey with us. We have all you need to achieve academic success.</p>
+        <h1>Didn't get accepted to the program of your choice? Mature applicants didn't meet English or Math prerequisites after completing English and Math pre-admission testing?</h1>
+        <h2>Start this assessment and we will help you find out how to get into the program of your choice. </h2>
+        <p></p>
         <button onclick="showQuestion('q1')">Start</button>
     </div>
 
@@ -182,7 +189,7 @@
 
 <!-- Question 17 -->
 <div id="q17" class="question">
-    <p>Do you miss any other requirements except English, Math, or Science requirement to enter a Seneca program?</p>
+    <p>Do you need additional prerequisites or specific courses required for your chosen Seneca program?</p>
     <button onclick="alert('Contact us at 416.764.0555 student.recruitment@senecapolytechnic.ca');showGoBack();">Yes</button>
     <button onclick="alert('Consider General Arts (GAP).'); showGoBack();">No</button>
     
